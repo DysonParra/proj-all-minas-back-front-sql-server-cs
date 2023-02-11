@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Project.Models.Conductor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNombreConductor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrLicenciaConduccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaVencimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrObservaciones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrTipoSancion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaInicioSancion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaFinalSancion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrDiasSancion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNombreConductor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrLicenciaConduccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaVencimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrObservaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrTipoSancion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaInicioSancion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaFinalSancion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrDiasSancion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StrIdentificacion">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StrIdentificacion">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StrIdentificacion">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

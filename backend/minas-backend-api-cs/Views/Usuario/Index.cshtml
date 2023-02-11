@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Project.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrApellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrTelefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CrRh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrSeudonimo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrTipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCargo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TxtContrasena)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrTelefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CrRh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrSeudonimo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrTipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TxtContrasena)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntCedula">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntCedula">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntCedula">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,84 @@
+﻿@model Project.Models.Configuracion
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Configuracion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IntId" />
+            <div class="form-group">
+                <label asp-for="StrTipo" class="control-label"></label>
+                <input asp-for="StrTipo" class="form-control" />
+                <span asp-validation-for="StrTipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrIndicador" class="control-label"></label>
+                <input asp-for="StrIndicador" class="form-control" />
+                <span asp-validation-for="StrIndicador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrBaudios" class="control-label"></label>
+                <input asp-for="StrBaudios" class="form-control" />
+                <span asp-validation-for="StrBaudios" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrBitsDatos" class="control-label"></label>
+                <input asp-for="StrBitsDatos" class="form-control" />
+                <span asp-validation-for="StrBitsDatos" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrBitsParada" class="control-label"></label>
+                <input asp-for="StrBitsParada" class="form-control" />
+                <span asp-validation-for="StrBitsParada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrParidad" class="control-label"></label>
+                <input asp-for="StrParidad" class="form-control" />
+                <span asp-validation-for="StrParidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrIp" class="control-label"></label>
+                <input asp-for="StrIp" class="form-control" />
+                <span asp-validation-for="StrIp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrPuerto" class="control-label"></label>
+                <input asp-for="StrPuerto" class="form-control" />
+                <span asp-validation-for="StrPuerto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrUsuario" class="control-label"></label>
+                <input asp-for="StrUsuario" class="form-control" />
+                <span asp-validation-for="StrUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrContrasena" class="control-label"></label>
+                <input asp-for="StrContrasena" class="form-control" />
+                <span asp-validation-for="StrContrasena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BitEstado" class="control-label"></label>
+                <input asp-for="BitEstado" class="form-control" />
+                <span asp-validation-for="BitEstado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

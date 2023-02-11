@@ -1,0 +1,78 @@
+﻿@model Project.Models.Conductor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Conductor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StrIdentificacion" class="control-label"></label>
+                <input asp-for="StrIdentificacion" class="form-control" />
+                <span asp-validation-for="StrIdentificacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrNombreConductor" class="control-label"></label>
+                <input asp-for="StrNombreConductor" class="form-control" />
+                <span asp-validation-for="StrNombreConductor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaNacimiento" class="control-label"></label>
+                <input asp-for="DtFechaNacimiento" class="form-control" />
+                <span asp-validation-for="DtFechaNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrLicenciaConduccion" class="control-label"></label>
+                <input asp-for="StrLicenciaConduccion" class="form-control" />
+                <span asp-validation-for="StrLicenciaConduccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaVencimiento" class="control-label"></label>
+                <input asp-for="DtFechaVencimiento" class="form-control" />
+                <span asp-validation-for="DtFechaVencimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrObservaciones" class="control-label"></label>
+                <input asp-for="StrObservaciones" class="form-control" />
+                <span asp-validation-for="StrObservaciones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrTipoSancion" class="control-label"></label>
+                <input asp-for="StrTipoSancion" class="form-control" />
+                <span asp-validation-for="StrTipoSancion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaInicioSancion" class="control-label"></label>
+                <input asp-for="DtFechaInicioSancion" class="form-control" />
+                <span asp-validation-for="DtFechaInicioSancion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtFechaFinalSancion" class="control-label"></label>
+                <input asp-for="DtFechaFinalSancion" class="form-control" />
+                <span asp-validation-for="DtFechaFinalSancion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrDiasSancion" class="control-label"></label>
+                <input asp-for="StrDiasSancion" class="form-control" />
+                <span asp-validation-for="StrDiasSancion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

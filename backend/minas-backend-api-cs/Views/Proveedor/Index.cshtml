@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Project.Models.Proveedor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrDireccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrPais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrPoblacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCodigoProveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCorreoElectronico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrPatio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntTopeMensual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntAcumulado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrObservaciones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntTopeOpcional)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntTopeAdicional)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntTopeSpot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntTopeOtros)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrDireccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrPais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrPoblacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCodigoProveedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCorreoElectronico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrPatio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntTopeMensual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntAcumulado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrObservaciones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntTopeOpcional)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntTopeAdicional)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntTopeSpot)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntTopeOtros)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StrCif">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StrCif">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StrCif">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Project.Models.Vehiculo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrPlaca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrTransporte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtRevisionTecnomecanica)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrSeguro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntTara)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntCapacidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCategoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrIdMina)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrPatio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrTope)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrIdConductor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCif)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrPlaca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrTransporte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtRevisionTecnomecanica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrSeguro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntTara)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntCapacidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCategoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrIdMina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrPatio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrTope)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrIdConductor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCif)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StrRfid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StrRfid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StrRfid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

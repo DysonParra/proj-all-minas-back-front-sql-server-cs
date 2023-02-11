@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Project.Models.Bascula>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrRfid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntCodigoPartida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntNumeroMuestra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntEstadoPartida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaHoraEntrada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FltPesoBruto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FltPesoNeto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrTipoVehiculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrMssCodigoPartida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtMssFechaHoraTomaMuestra)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrRfid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntCodigoPartida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntNumeroMuestra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntEstadoPartida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaHoraEntrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FltPesoBruto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FltPesoNeto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrTipoVehiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrMssCodigoPartida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtMssFechaHoraTomaMuestra)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdProveedor">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdProveedor">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdProveedor">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

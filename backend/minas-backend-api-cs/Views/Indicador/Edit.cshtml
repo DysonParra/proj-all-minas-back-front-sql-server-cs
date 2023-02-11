@@ -1,0 +1,59 @@
+﻿@model Project.Models.Indicador
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Indicador</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="StrCodigo" />
+            <div class="form-group">
+                <label asp-for="StrNombre" class="control-label"></label>
+                <input asp-for="StrNombre" class="form-control" />
+                <span asp-validation-for="StrNombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrTamanoTrama" class="control-label"></label>
+                <input asp-for="StrTamanoTrama" class="form-control" />
+                <span asp-validation-for="StrTamanoTrama" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrPosicionInicial" class="control-label"></label>
+                <input asp-for="StrPosicionInicial" class="form-control" />
+                <span asp-validation-for="StrPosicionInicial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrTotalDatosPeso" class="control-label"></label>
+                <input asp-for="StrTotalDatosPeso" class="form-control" />
+                <span asp-validation-for="StrTotalDatosPeso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrCaracterFinTrama" class="control-label"></label>
+                <input asp-for="StrCaracterFinTrama" class="form-control" />
+                <span asp-validation-for="StrCaracterFinTrama" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrCaracterInicioTrama" class="control-label"></label>
+                <input asp-for="StrCaracterInicioTrama" class="form-control" />
+                <span asp-validation-for="StrCaracterInicioTrama" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Project.Models.GeneradorPartida>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IntCodigoPartida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntCodigoVehiculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntPeso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrEstado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntPesoEstimado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrTipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCifProveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrRfid)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntCodigoPartida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntCodigoVehiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntPeso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntPesoEstimado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrTipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCifProveedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrRfid)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntConsecutivo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntConsecutivo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntConsecutivo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

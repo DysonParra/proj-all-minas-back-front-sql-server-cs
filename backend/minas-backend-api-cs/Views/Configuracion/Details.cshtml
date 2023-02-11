@@ -1,0 +1,84 @@
+﻿@model Project.Models.Configuracion
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Configuracion</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrTipo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrTipo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrIndicador)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrIndicador)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrBaudios)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrBaudios)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrBitsDatos)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrBitsDatos)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrBitsParada)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrBitsParada)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrParidad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrParidad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrIp)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrIp)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrPuerto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrPuerto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrUsuario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrUsuario)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StrContrasena)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StrContrasena)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BitEstado)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BitEstado)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IntId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

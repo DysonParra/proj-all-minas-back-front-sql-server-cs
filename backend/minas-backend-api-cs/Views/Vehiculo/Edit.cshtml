@@ -1,0 +1,89 @@
+﻿@model Project.Models.Vehiculo
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Vehiculo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="StrRfid" />
+            <div class="form-group">
+                <label asp-for="StrPlaca" class="control-label"></label>
+                <input asp-for="StrPlaca" class="form-control" />
+                <span asp-validation-for="StrPlaca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrTransporte" class="control-label"></label>
+                <input asp-for="StrTransporte" class="form-control" />
+                <span asp-validation-for="StrTransporte" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DtRevisionTecnomecanica" class="control-label"></label>
+                <input asp-for="DtRevisionTecnomecanica" class="form-control" />
+                <span asp-validation-for="DtRevisionTecnomecanica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrSeguro" class="control-label"></label>
+                <input asp-for="StrSeguro" class="form-control" />
+                <span asp-validation-for="StrSeguro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntTara" class="control-label"></label>
+                <input asp-for="IntTara" class="form-control" />
+                <span asp-validation-for="IntTara" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IntCapacidad" class="control-label"></label>
+                <input asp-for="IntCapacidad" class="form-control" />
+                <span asp-validation-for="IntCapacidad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrCategoria" class="control-label"></label>
+                <input asp-for="StrCategoria" class="form-control" />
+                <span asp-validation-for="StrCategoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrIdMina" class="control-label"></label>
+                <input asp-for="StrIdMina" class="form-control" />
+                <span asp-validation-for="StrIdMina" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrPatio" class="control-label"></label>
+                <input asp-for="StrPatio" class="form-control" />
+                <span asp-validation-for="StrPatio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrTope" class="control-label"></label>
+                <input asp-for="StrTope" class="form-control" />
+                <span asp-validation-for="StrTope" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrIdConductor" class="control-label"></label>
+                <input asp-for="StrIdConductor" class="form-control" />
+                <span asp-validation-for="StrIdConductor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StrCif" class="control-label"></label>
+                <input asp-for="StrCif" class="form-control" />
+                <span asp-validation-for="StrCif" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

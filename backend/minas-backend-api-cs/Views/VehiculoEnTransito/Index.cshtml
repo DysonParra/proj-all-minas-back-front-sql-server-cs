@@ -1,0 +1,227 @@
+﻿@model IEnumerable<Project.Models.VehiculoEnTransito>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdParque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrTransporte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrTicket)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrMatricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrVagon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaEntrada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaSalida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCombustible)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrTipoMovimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrParvaAnterior)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaFinParva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrPatio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DtFechaInicioParva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrMuestras)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNroBolsa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCodigoPartida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrConsecutivoVehiculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntPesoEntrada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntPesoSalida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntPesoNeto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUnidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrDescripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TxtRutaFotos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrRfid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitProcesoManual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitVehiculoDevuelto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrCif)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrIdDestino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrIdOrigen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrEstado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntIdPorDia)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdParque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrTransporte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrTicket)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrMatricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrVagon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaEntrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaSalida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCombustible)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrTipoMovimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrParvaAnterior)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaFinParva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrPatio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DtFechaInicioParva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrMuestras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNroBolsa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCodigoPartida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrConsecutivoVehiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntPesoEntrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntPesoSalida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntPesoNeto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUnidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrDescripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TxtRutaFotos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrRfid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitProcesoManual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitVehiculoDevuelto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrCif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrIdDestino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrIdOrigen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntIdPorDia)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntIdEntrada">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntIdEntrada">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntIdEntrada">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

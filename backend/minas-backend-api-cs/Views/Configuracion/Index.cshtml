@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Project.Models.Configuracion>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StrTipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrIndicador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrBaudios)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrBitsDatos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrBitsParada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrParidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrIp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrPuerto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrContrasena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BitEstado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrTipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrIndicador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrBaudios)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrBitsDatos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrBitsParada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrParidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrIp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrPuerto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrContrasena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BitEstado)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
