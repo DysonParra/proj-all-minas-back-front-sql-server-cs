@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code VehiculoEnTransito}.
+ * TODO: Description of {@code VehiculoEnTransito}.
  *
  * @author Dyson Parra
  */

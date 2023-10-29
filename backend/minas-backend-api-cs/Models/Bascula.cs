@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code Bascula}.
+ * TODO: Description of {@code Bascula}.
  *
  * @author Dyson Parra
  */

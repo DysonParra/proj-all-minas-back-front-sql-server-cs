@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code ConsecutivoDiario}.
+ * TODO: Description of {@code ConsecutivoDiario}.
  *
  * @author Dyson Parra
  */

@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code CierrePartida}.
+ * TODO: Description of {@code CierrePartida}.
  *
  * @author Dyson Parra
  */

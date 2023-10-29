@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code RegistroEntradaSalida}.
+ * TODO: Description of {@code RegistroEntradaSalida}.
  *
  * @author Dyson Parra
  */

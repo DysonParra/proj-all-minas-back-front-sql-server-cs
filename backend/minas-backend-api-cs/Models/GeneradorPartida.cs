@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code GeneradorPartida}.
+ * TODO: Description of {@code GeneradorPartida}.
  *
  * @author Dyson Parra
  */

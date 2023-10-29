@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code CodigoOrigen}.
+ * TODO: Description of {@code CodigoOrigen}.
  *
  * @author Dyson Parra
  */

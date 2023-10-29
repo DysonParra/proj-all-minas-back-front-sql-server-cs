@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code ControlAcceso}.
+ * TODO: Description of {@code ControlAcceso}.
  *
  * @author Dyson Parra
  */

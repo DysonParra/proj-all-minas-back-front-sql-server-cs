@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code FicherosProveedor}.
+ * TODO: Description of {@code FicherosProveedor}.
  *
  * @author Dyson Parra
  */

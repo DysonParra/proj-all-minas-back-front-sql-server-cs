@@ -16,7 +16,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 /**
- * TODO: Definición de {@code TituloMinero}.
+ * TODO: Description of {@code TituloMinero}.
  *
  * @author Dyson Parra
  */
