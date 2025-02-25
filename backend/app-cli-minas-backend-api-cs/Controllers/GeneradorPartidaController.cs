@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Minas.Data;
 using Project.Models;
 
-namespace Minas.Controllers
-{
-    public class GeneradorPartidaController : Controller
-    {
+namespace Minas.Controllers {
+
+    /**
+     * TODO: Description of {@code GeneradorPartidaController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class GeneradorPartidaController : Controller {
         private readonly MinasContext _context;
 
-        public GeneradorPartidaController(MinasContext context)
-        {
+        public GeneradorPartidaController(MinasContext context) {
             _context = context;
         }
 
         // GET: GeneradorPartida
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.GeneradorPartida.ToListAsync());
         }
 
         // GET: GeneradorPartida/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.GeneradorPartida == null)
-            {
+        public async Task<IActionResult> Details(int? id) {
+            if (id == null || _context.GeneradorPartida == null) {
                 return NotFound();
             }
 
             var generadorPartida = await _context.GeneradorPartida
                 .FirstOrDefaultAsync(m => m.IntConsecutivo == id);
-            if (generadorPartida == null)
-            {
+            if (generadorPartida == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Minas.Controllers
         }
 
         // GET: GeneradorPartida/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntConsecutivo,IntCodigoPartida,IntCodigoVehiculo,IntPeso,DtFecha,StrEstado,IntPesoEstimado,StrTipo,StrCifProveedor,StrRfid")] GeneradorPartida generadorPartida)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntConsecutivo,IntCodigoPartida,IntCodigoVehiculo,IntPeso,DtFecha,StrEstado,IntPesoEstimado,StrTipo,StrCifProveedor,StrRfid")] GeneradorPartida generadorPartida) {
+            if (ModelState.IsValid) {
                 _context.Add(generadorPartida);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Minas.Controllers
         }
 
         // GET: GeneradorPartida/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.GeneradorPartida == null)
-            {
+        public async Task<IActionResult> Edit(int? id) {
+            if (id == null || _context.GeneradorPartida == null) {
                 return NotFound();
             }
 
             var generadorPartida = await _context.GeneradorPartida.FindAsync(id);
-            if (generadorPartida == null)
-            {
+            if (generadorPartida == null) {
                 return NotFound();
             }
             return View(generadorPartida);
@@ -100,28 +94,21 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("IntConsecutivo,IntCodigoPartida,IntCodigoVehiculo,IntPeso,DtFecha,StrEstado,IntPesoEstimado,StrTipo,StrCifProveedor,StrRfid")] GeneradorPartida generadorPartida)
-        {
-            if (id != generadorPartida.IntConsecutivo)
-            {
+        public async Task<IActionResult> Edit(int? id, [Bind("IntConsecutivo,IntCodigoPartida,IntCodigoVehiculo,IntPeso,DtFecha,StrEstado,IntPesoEstimado,StrTipo,StrCifProveedor,StrRfid")] GeneradorPartida generadorPartida) {
+            if (id != generadorPartida.IntConsecutivo) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(generadorPartida);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!GeneradorPartidaExists(generadorPartida.IntConsecutivo))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!GeneradorPartidaExists(generadorPartida.IntConsecutivo)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Minas.Controllers
         }
 
         // GET: GeneradorPartida/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.GeneradorPartida == null)
-            {
+        public async Task<IActionResult> Delete(int? id) {
+            if (id == null || _context.GeneradorPartida == null) {
                 return NotFound();
             }
 
             var generadorPartida = await _context.GeneradorPartida
                 .FirstOrDefaultAsync(m => m.IntConsecutivo == id);
-            if (generadorPartida == null)
-            {
+            if (generadorPartida == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Minas.Controllers
         // POST: GeneradorPartida/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
-        {
-            if (_context.GeneradorPartida == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(int? id) {
+            if (_context.GeneradorPartida == null) {
                 return Problem("Entity set 'MinasContext.GeneradorPartida'  is null.");
             }
             var generadorPartida = await _context.GeneradorPartida.FindAsync(id);
-            if (generadorPartida != null)
-            {
+            if (generadorPartida != null) {
                 _context.GeneradorPartida.Remove(generadorPartida);
             }
 
@@ -167,8 +148,7 @@ namespace Minas.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool GeneradorPartidaExists(int? id)
-        {
+        private bool GeneradorPartidaExists(int? id) {
             return _context.GeneradorPartida.Any(e => e.IntConsecutivo == id);
         }
     }

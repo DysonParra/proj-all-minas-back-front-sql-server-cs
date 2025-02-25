@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Minas.Data;
 using Project.Models;
 
-namespace Minas.Controllers
-{
-    public class ParqueController : Controller
-    {
+namespace Minas.Controllers {
+
+    /**
+     * TODO: Description of {@code ParqueController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class ParqueController : Controller {
         private readonly MinasContext _context;
 
-        public ParqueController(MinasContext context)
-        {
+        public ParqueController(MinasContext context) {
             _context = context;
         }
 
         // GET: Parque
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Parque.ToListAsync());
         }
 
         // GET: Parque/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Parque == null)
-            {
+        public async Task<IActionResult> Details(int? id) {
+            if (id == null || _context.Parque == null) {
                 return NotFound();
             }
 
             var parque = await _context.Parque
                 .FirstOrDefaultAsync(m => m.IntIdParque == id);
-            if (parque == null)
-            {
+            if (parque == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Minas.Controllers
         }
 
         // GET: Parque/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdParque,StrNombreParque,StrObservaciones,StrUbicacion")] Parque parque)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdParque,StrNombreParque,StrObservaciones,StrUbicacion")] Parque parque) {
+            if (ModelState.IsValid) {
                 _context.Add(parque);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Minas.Controllers
         }
 
         // GET: Parque/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Parque == null)
-            {
+        public async Task<IActionResult> Edit(int? id) {
+            if (id == null || _context.Parque == null) {
                 return NotFound();
             }
 
             var parque = await _context.Parque.FindAsync(id);
-            if (parque == null)
-            {
+            if (parque == null) {
                 return NotFound();
             }
             return View(parque);
@@ -100,28 +94,21 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("IntIdParque,StrNombreParque,StrObservaciones,StrUbicacion")] Parque parque)
-        {
-            if (id != parque.IntIdParque)
-            {
+        public async Task<IActionResult> Edit(int? id, [Bind("IntIdParque,StrNombreParque,StrObservaciones,StrUbicacion")] Parque parque) {
+            if (id != parque.IntIdParque) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(parque);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ParqueExists(parque.IntIdParque))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!ParqueExists(parque.IntIdParque)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Minas.Controllers
         }
 
         // GET: Parque/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Parque == null)
-            {
+        public async Task<IActionResult> Delete(int? id) {
+            if (id == null || _context.Parque == null) {
                 return NotFound();
             }
 
             var parque = await _context.Parque
                 .FirstOrDefaultAsync(m => m.IntIdParque == id);
-            if (parque == null)
-            {
+            if (parque == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Minas.Controllers
         // POST: Parque/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
-        {
-            if (_context.Parque == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(int? id) {
+            if (_context.Parque == null) {
                 return Problem("Entity set 'MinasContext.Parque'  is null.");
             }
             var parque = await _context.Parque.FindAsync(id);
-            if (parque != null)
-            {
+            if (parque != null) {
                 _context.Parque.Remove(parque);
             }
 
@@ -167,8 +148,7 @@ namespace Minas.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ParqueExists(int? id)
-        {
+        private bool ParqueExists(int? id) {
             return _context.Parque.Any(e => e.IntIdParque == id);
         }
     }

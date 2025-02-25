@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Minas.Data;
 using Project.Models;
 
-namespace Minas.Controllers
-{
-    public class TemporalController : Controller
-    {
+namespace Minas.Controllers {
+
+    /**
+     * TODO: Description of {@code TemporalController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class TemporalController : Controller {
         private readonly MinasContext _context;
 
-        public TemporalController(MinasContext context)
-        {
+        public TemporalController(MinasContext context) {
             _context = context;
         }
 
         // GET: Temporal
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Temporal.ToListAsync());
         }
 
         // GET: Temporal/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Temporal == null)
-            {
+        public async Task<IActionResult> Details(int? id) {
+            if (id == null || _context.Temporal == null) {
                 return NotFound();
             }
 
             var temporal = await _context.Temporal
                 .FirstOrDefaultAsync(m => m.IntIdTemporal == id);
-            if (temporal == null)
-            {
+            if (temporal == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Minas.Controllers
         }
 
         // GET: Temporal/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdTemporal,StrPlaca,StrRfid,StrProveedor,StrTope,IntAcumulado,DtFechaEntrada,DtFechaSalida,StrEstado")] Temporal temporal)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdTemporal,StrPlaca,StrRfid,StrProveedor,StrTope,IntAcumulado,DtFechaEntrada,DtFechaSalida,StrEstado")] Temporal temporal) {
+            if (ModelState.IsValid) {
                 _context.Add(temporal);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Minas.Controllers
         }
 
         // GET: Temporal/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Temporal == null)
-            {
+        public async Task<IActionResult> Edit(int? id) {
+            if (id == null || _context.Temporal == null) {
                 return NotFound();
             }
 
             var temporal = await _context.Temporal.FindAsync(id);
-            if (temporal == null)
-            {
+            if (temporal == null) {
                 return NotFound();
             }
             return View(temporal);
@@ -100,28 +94,21 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("IntIdTemporal,StrPlaca,StrRfid,StrProveedor,StrTope,IntAcumulado,DtFechaEntrada,DtFechaSalida,StrEstado")] Temporal temporal)
-        {
-            if (id != temporal.IntIdTemporal)
-            {
+        public async Task<IActionResult> Edit(int? id, [Bind("IntIdTemporal,StrPlaca,StrRfid,StrProveedor,StrTope,IntAcumulado,DtFechaEntrada,DtFechaSalida,StrEstado")] Temporal temporal) {
+            if (id != temporal.IntIdTemporal) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(temporal);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TemporalExists(temporal.IntIdTemporal))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!TemporalExists(temporal.IntIdTemporal)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Minas.Controllers
         }
 
         // GET: Temporal/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Temporal == null)
-            {
+        public async Task<IActionResult> Delete(int? id) {
+            if (id == null || _context.Temporal == null) {
                 return NotFound();
             }
 
             var temporal = await _context.Temporal
                 .FirstOrDefaultAsync(m => m.IntIdTemporal == id);
-            if (temporal == null)
-            {
+            if (temporal == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Minas.Controllers
         // POST: Temporal/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
-        {
-            if (_context.Temporal == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(int? id) {
+            if (_context.Temporal == null) {
                 return Problem("Entity set 'MinasContext.Temporal'  is null.");
             }
             var temporal = await _context.Temporal.FindAsync(id);
-            if (temporal != null)
-            {
+            if (temporal != null) {
                 _context.Temporal.Remove(temporal);
             }
 
@@ -167,8 +148,7 @@ namespace Minas.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool TemporalExists(int? id)
-        {
+        private bool TemporalExists(int? id) {
             return _context.Temporal.Any(e => e.IntIdTemporal == id);
         }
     }

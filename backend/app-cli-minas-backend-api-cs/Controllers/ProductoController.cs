@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Minas.Data;
 using Project.Models;
 
-namespace Minas.Controllers
-{
-    public class ProductoController : Controller
-    {
+namespace Minas.Controllers {
+
+    /**
+     * TODO: Description of {@code ProductoController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class ProductoController : Controller {
         private readonly MinasContext _context;
 
-        public ProductoController(MinasContext context)
-        {
+        public ProductoController(MinasContext context) {
             _context = context;
         }
 
         // GET: Producto
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Producto.ToListAsync());
         }
 
         // GET: Producto/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Producto == null)
-            {
+        public async Task<IActionResult> Details(int? id) {
+            if (id == null || _context.Producto == null) {
                 return NotFound();
             }
 
             var producto = await _context.Producto
                 .FirstOrDefaultAsync(m => m.IntIdProducto == id);
-            if (producto == null)
-            {
+            if (producto == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Minas.Controllers
         }
 
         // GET: Producto/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdProducto,StrProducto")] Producto producto)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdProducto,StrProducto")] Producto producto) {
+            if (ModelState.IsValid) {
                 _context.Add(producto);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Minas.Controllers
         }
 
         // GET: Producto/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Producto == null)
-            {
+        public async Task<IActionResult> Edit(int? id) {
+            if (id == null || _context.Producto == null) {
                 return NotFound();
             }
 
             var producto = await _context.Producto.FindAsync(id);
-            if (producto == null)
-            {
+            if (producto == null) {
                 return NotFound();
             }
             return View(producto);
@@ -100,28 +94,21 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("IntIdProducto,StrProducto")] Producto producto)
-        {
-            if (id != producto.IntIdProducto)
-            {
+        public async Task<IActionResult> Edit(int? id, [Bind("IntIdProducto,StrProducto")] Producto producto) {
+            if (id != producto.IntIdProducto) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(producto);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ProductoExists(producto.IntIdProducto))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!ProductoExists(producto.IntIdProducto)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Minas.Controllers
         }
 
         // GET: Producto/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Producto == null)
-            {
+        public async Task<IActionResult> Delete(int? id) {
+            if (id == null || _context.Producto == null) {
                 return NotFound();
             }
 
             var producto = await _context.Producto
                 .FirstOrDefaultAsync(m => m.IntIdProducto == id);
-            if (producto == null)
-            {
+            if (producto == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Minas.Controllers
         // POST: Producto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
-        {
-            if (_context.Producto == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(int? id) {
+            if (_context.Producto == null) {
                 return Problem("Entity set 'MinasContext.Producto'  is null.");
             }
             var producto = await _context.Producto.FindAsync(id);
-            if (producto != null)
-            {
+            if (producto != null) {
                 _context.Producto.Remove(producto);
             }
 
@@ -167,8 +148,7 @@ namespace Minas.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductoExists(int? id)
-        {
+        private bool ProductoExists(int? id) {
             return _context.Producto.Any(e => e.IntIdProducto == id);
         }
     }

@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Minas.Data;
 using Project.Models;
 
-namespace Minas.Controllers
-{
-    public class RegistroEntradaSalidaController : Controller
-    {
+namespace Minas.Controllers {
+
+    /**
+     * TODO: Description of {@code RegistroEntradaSalidaController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class RegistroEntradaSalidaController : Controller {
         private readonly MinasContext _context;
 
-        public RegistroEntradaSalidaController(MinasContext context)
-        {
+        public RegistroEntradaSalidaController(MinasContext context) {
             _context = context;
         }
 
         // GET: RegistroEntradaSalida
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.RegistroEntradaSalida.ToListAsync());
         }
 
         // GET: RegistroEntradaSalida/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.RegistroEntradaSalida == null)
-            {
+        public async Task<IActionResult> Details(int? id) {
+            if (id == null || _context.RegistroEntradaSalida == null) {
                 return NotFound();
             }
 
             var registroEntradaSalida = await _context.RegistroEntradaSalida
                 .FirstOrDefaultAsync(m => m.IntIdEntrada == id);
-            if (registroEntradaSalida == null)
-            {
+            if (registroEntradaSalida == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Minas.Controllers
         }
 
         // GET: RegistroEntradaSalida/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdEntrada,StrTransporte,StrTicket,StrMatricula,StrVagon,DtFechaEntrada,DtFechaSalida,StrCombustible,StrTipoMovimiento,StrNombre,StrParvaAnterior,DtFechaFinParva,StrPatio,DtFechaInicioParva,StrMuestras,StrNroBolsa,StrCodigoPartida,StrConsecutivoVehiculo,IntPesoEntrada,IntPesoSalida,IntPesoNeto,StrUnidad,StrDescripcion,TxtRutaFotos,StrRfid,BitProcesoManual,StrUsuario,BitVehiculoDevuelto,StrCif,StrIdDestino,StrIdOrigen,StrEstado,IntIdPorDia,IntIdParque")] RegistroEntradaSalida registroEntradaSalida)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdEntrada,StrTransporte,StrTicket,StrMatricula,StrVagon,DtFechaEntrada,DtFechaSalida,StrCombustible,StrTipoMovimiento,StrNombre,StrParvaAnterior,DtFechaFinParva,StrPatio,DtFechaInicioParva,StrMuestras,StrNroBolsa,StrCodigoPartida,StrConsecutivoVehiculo,IntPesoEntrada,IntPesoSalida,IntPesoNeto,StrUnidad,StrDescripcion,TxtRutaFotos,StrRfid,BitProcesoManual,StrUsuario,BitVehiculoDevuelto,StrCif,StrIdDestino,StrIdOrigen,StrEstado,IntIdPorDia,IntIdParque")] RegistroEntradaSalida registroEntradaSalida) {
+            if (ModelState.IsValid) {
                 _context.Add(registroEntradaSalida);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Minas.Controllers
         }
 
         // GET: RegistroEntradaSalida/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.RegistroEntradaSalida == null)
-            {
+        public async Task<IActionResult> Edit(int? id) {
+            if (id == null || _context.RegistroEntradaSalida == null) {
                 return NotFound();
             }
 
             var registroEntradaSalida = await _context.RegistroEntradaSalida.FindAsync(id);
-            if (registroEntradaSalida == null)
-            {
+            if (registroEntradaSalida == null) {
                 return NotFound();
             }
             return View(registroEntradaSalida);
@@ -100,28 +94,21 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("IntIdEntrada,StrTransporte,StrTicket,StrMatricula,StrVagon,DtFechaEntrada,DtFechaSalida,StrCombustible,StrTipoMovimiento,StrNombre,StrParvaAnterior,DtFechaFinParva,StrPatio,DtFechaInicioParva,StrMuestras,StrNroBolsa,StrCodigoPartida,StrConsecutivoVehiculo,IntPesoEntrada,IntPesoSalida,IntPesoNeto,StrUnidad,StrDescripcion,TxtRutaFotos,StrRfid,BitProcesoManual,StrUsuario,BitVehiculoDevuelto,StrCif,StrIdDestino,StrIdOrigen,StrEstado,IntIdPorDia,IntIdParque")] RegistroEntradaSalida registroEntradaSalida)
-        {
-            if (id != registroEntradaSalida.IntIdEntrada)
-            {
+        public async Task<IActionResult> Edit(int? id, [Bind("IntIdEntrada,StrTransporte,StrTicket,StrMatricula,StrVagon,DtFechaEntrada,DtFechaSalida,StrCombustible,StrTipoMovimiento,StrNombre,StrParvaAnterior,DtFechaFinParva,StrPatio,DtFechaInicioParva,StrMuestras,StrNroBolsa,StrCodigoPartida,StrConsecutivoVehiculo,IntPesoEntrada,IntPesoSalida,IntPesoNeto,StrUnidad,StrDescripcion,TxtRutaFotos,StrRfid,BitProcesoManual,StrUsuario,BitVehiculoDevuelto,StrCif,StrIdDestino,StrIdOrigen,StrEstado,IntIdPorDia,IntIdParque")] RegistroEntradaSalida registroEntradaSalida) {
+            if (id != registroEntradaSalida.IntIdEntrada) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(registroEntradaSalida);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!RegistroEntradaSalidaExists(registroEntradaSalida.IntIdEntrada))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!RegistroEntradaSalidaExists(registroEntradaSalida.IntIdEntrada)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Minas.Controllers
         }
 
         // GET: RegistroEntradaSalida/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.RegistroEntradaSalida == null)
-            {
+        public async Task<IActionResult> Delete(int? id) {
+            if (id == null || _context.RegistroEntradaSalida == null) {
                 return NotFound();
             }
 
             var registroEntradaSalida = await _context.RegistroEntradaSalida
                 .FirstOrDefaultAsync(m => m.IntIdEntrada == id);
-            if (registroEntradaSalida == null)
-            {
+            if (registroEntradaSalida == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Minas.Controllers
         // POST: RegistroEntradaSalida/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
-        {
-            if (_context.RegistroEntradaSalida == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(int? id) {
+            if (_context.RegistroEntradaSalida == null) {
                 return Problem("Entity set 'MinasContext.RegistroEntradaSalida'  is null.");
             }
             var registroEntradaSalida = await _context.RegistroEntradaSalida.FindAsync(id);
-            if (registroEntradaSalida != null)
-            {
+            if (registroEntradaSalida != null) {
                 _context.RegistroEntradaSalida.Remove(registroEntradaSalida);
             }
 
@@ -167,8 +148,7 @@ namespace Minas.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RegistroEntradaSalidaExists(int? id)
-        {
+        private bool RegistroEntradaSalidaExists(int? id) {
             return _context.RegistroEntradaSalida.Any(e => e.IntIdEntrada == id);
         }
     }

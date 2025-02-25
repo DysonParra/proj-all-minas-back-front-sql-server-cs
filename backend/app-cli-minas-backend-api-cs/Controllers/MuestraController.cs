@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Minas.Data;
 using Project.Models;
 
-namespace Minas.Controllers
-{
-    public class MuestraController : Controller
-    {
+namespace Minas.Controllers {
+
+    /**
+     * TODO: Description of {@code MuestraController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class MuestraController : Controller {
         private readonly MinasContext _context;
 
-        public MuestraController(MinasContext context)
-        {
+        public MuestraController(MinasContext context) {
             _context = context;
         }
 
         // GET: Muestra
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Muestra.ToListAsync());
         }
 
         // GET: Muestra/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Muestra == null)
-            {
+        public async Task<IActionResult> Details(int? id) {
+            if (id == null || _context.Muestra == null) {
                 return NotFound();
             }
 
             var muestra = await _context.Muestra
                 .FirstOrDefaultAsync(m => m.IntIdMuestra == id);
-            if (muestra == null)
-            {
+            if (muestra == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Minas.Controllers
         }
 
         // GET: Muestra/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdMuestra,StrPartida,StrCamion,DtFechaHora,StrObservaciones,StrRfid")] Muestra muestra)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdMuestra,StrPartida,StrCamion,DtFechaHora,StrObservaciones,StrRfid")] Muestra muestra) {
+            if (ModelState.IsValid) {
                 _context.Add(muestra);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Minas.Controllers
         }
 
         // GET: Muestra/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Muestra == null)
-            {
+        public async Task<IActionResult> Edit(int? id) {
+            if (id == null || _context.Muestra == null) {
                 return NotFound();
             }
 
             var muestra = await _context.Muestra.FindAsync(id);
-            if (muestra == null)
-            {
+            if (muestra == null) {
                 return NotFound();
             }
             return View(muestra);
@@ -100,28 +94,21 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("IntIdMuestra,StrPartida,StrCamion,DtFechaHora,StrObservaciones,StrRfid")] Muestra muestra)
-        {
-            if (id != muestra.IntIdMuestra)
-            {
+        public async Task<IActionResult> Edit(int? id, [Bind("IntIdMuestra,StrPartida,StrCamion,DtFechaHora,StrObservaciones,StrRfid")] Muestra muestra) {
+            if (id != muestra.IntIdMuestra) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(muestra);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MuestraExists(muestra.IntIdMuestra))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!MuestraExists(muestra.IntIdMuestra)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Minas.Controllers
         }
 
         // GET: Muestra/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Muestra == null)
-            {
+        public async Task<IActionResult> Delete(int? id) {
+            if (id == null || _context.Muestra == null) {
                 return NotFound();
             }
 
             var muestra = await _context.Muestra
                 .FirstOrDefaultAsync(m => m.IntIdMuestra == id);
-            if (muestra == null)
-            {
+            if (muestra == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Minas.Controllers
         // POST: Muestra/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
-        {
-            if (_context.Muestra == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(int? id) {
+            if (_context.Muestra == null) {
                 return Problem("Entity set 'MinasContext.Muestra'  is null.");
             }
             var muestra = await _context.Muestra.FindAsync(id);
-            if (muestra != null)
-            {
+            if (muestra != null) {
                 _context.Muestra.Remove(muestra);
             }
 
@@ -167,8 +148,7 @@ namespace Minas.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MuestraExists(int? id)
-        {
+        private bool MuestraExists(int? id) {
             return _context.Muestra.Any(e => e.IntIdMuestra == id);
         }
     }

@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Minas.Data;
 using Project.Models;
 
-namespace Minas.Controllers
-{
-    public class MinaController : Controller
-    {
+namespace Minas.Controllers {
+
+    /**
+     * TODO: Description of {@code MinaController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class MinaController : Controller {
         private readonly MinasContext _context;
 
-        public MinaController(MinasContext context)
-        {
+        public MinaController(MinasContext context) {
             _context = context;
         }
 
         // GET: Mina
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.Mina.ToListAsync());
         }
 
         // GET: Mina/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null || _context.Mina == null)
-            {
+        public async Task<IActionResult> Details(string id) {
+            if (id == null || _context.Mina == null) {
                 return NotFound();
             }
 
             var mina = await _context.Mina
                 .FirstOrDefaultAsync(m => m.StrIdMina == id);
-            if (mina == null)
-            {
+            if (mina == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Minas.Controllers
         }
 
         // GET: Mina/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StrIdMina,StrNombre,StrLocalidad,StrTelefono,StrObservaciones,StrProducto,StrTicket,StrIdTituloMinero")] Mina mina)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("StrIdMina,StrNombre,StrLocalidad,StrTelefono,StrObservaciones,StrProducto,StrTicket,StrIdTituloMinero")] Mina mina) {
+            if (ModelState.IsValid) {
                 _context.Add(mina);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Minas.Controllers
         }
 
         // GET: Mina/Edit/5
-        public async Task<IActionResult> Edit(string id)
-        {
-            if (id == null || _context.Mina == null)
-            {
+        public async Task<IActionResult> Edit(string id) {
+            if (id == null || _context.Mina == null) {
                 return NotFound();
             }
 
             var mina = await _context.Mina.FindAsync(id);
-            if (mina == null)
-            {
+            if (mina == null) {
                 return NotFound();
             }
             return View(mina);
@@ -100,28 +94,21 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("StrIdMina,StrNombre,StrLocalidad,StrTelefono,StrObservaciones,StrProducto,StrTicket,StrIdTituloMinero")] Mina mina)
-        {
-            if (id != mina.StrIdMina)
-            {
+        public async Task<IActionResult> Edit(string id, [Bind("StrIdMina,StrNombre,StrLocalidad,StrTelefono,StrObservaciones,StrProducto,StrTicket,StrIdTituloMinero")] Mina mina) {
+            if (id != mina.StrIdMina) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(mina);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!MinaExists(mina.StrIdMina))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!MinaExists(mina.StrIdMina)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Minas.Controllers
         }
 
         // GET: Mina/Delete/5
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null || _context.Mina == null)
-            {
+        public async Task<IActionResult> Delete(string id) {
+            if (id == null || _context.Mina == null) {
                 return NotFound();
             }
 
             var mina = await _context.Mina
                 .FirstOrDefaultAsync(m => m.StrIdMina == id);
-            if (mina == null)
-            {
+            if (mina == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Minas.Controllers
         // POST: Mina/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            if (_context.Mina == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(string id) {
+            if (_context.Mina == null) {
                 return Problem("Entity set 'MinasContext.Mina'  is null.");
             }
             var mina = await _context.Mina.FindAsync(id);
-            if (mina != null)
-            {
+            if (mina != null) {
                 _context.Mina.Remove(mina);
             }
 
@@ -167,8 +148,7 @@ namespace Minas.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool MinaExists(string id)
-        {
+        private bool MinaExists(string id) {
             return _context.Mina.Any(e => e.StrIdMina == id);
         }
     }

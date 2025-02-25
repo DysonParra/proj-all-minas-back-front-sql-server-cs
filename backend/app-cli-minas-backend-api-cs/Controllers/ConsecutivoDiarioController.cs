@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Minas.Data;
 using Project.Models;
 
-namespace Minas.Controllers
-{
-    public class ConsecutivoDiarioController : Controller
-    {
+namespace Minas.Controllers {
+
+    /**
+     * TODO: Description of {@code ConsecutivoDiarioController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class ConsecutivoDiarioController : Controller {
         private readonly MinasContext _context;
 
-        public ConsecutivoDiarioController(MinasContext context)
-        {
+        public ConsecutivoDiarioController(MinasContext context) {
             _context = context;
         }
 
         // GET: ConsecutivoDiario
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.ConsecutivoDiario.ToListAsync());
         }
 
         // GET: ConsecutivoDiario/Details/5
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null || _context.ConsecutivoDiario == null)
-            {
+        public async Task<IActionResult> Details(string id) {
+            if (id == null || _context.ConsecutivoDiario == null) {
                 return NotFound();
             }
 
             var consecutivoDiario = await _context.ConsecutivoDiario
                 .FirstOrDefaultAsync(m => m.StrRfid == id);
-            if (consecutivoDiario == null)
-            {
+            if (consecutivoDiario == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Minas.Controllers
         }
 
         // GET: ConsecutivoDiario/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StrRfid,IntNroTiquete,IntConsecutivoDia")] ConsecutivoDiario consecutivoDiario)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("StrRfid,IntNroTiquete,IntConsecutivoDia")] ConsecutivoDiario consecutivoDiario) {
+            if (ModelState.IsValid) {
                 _context.Add(consecutivoDiario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Minas.Controllers
         }
 
         // GET: ConsecutivoDiario/Edit/5
-        public async Task<IActionResult> Edit(string id)
-        {
-            if (id == null || _context.ConsecutivoDiario == null)
-            {
+        public async Task<IActionResult> Edit(string id) {
+            if (id == null || _context.ConsecutivoDiario == null) {
                 return NotFound();
             }
 
             var consecutivoDiario = await _context.ConsecutivoDiario.FindAsync(id);
-            if (consecutivoDiario == null)
-            {
+            if (consecutivoDiario == null) {
                 return NotFound();
             }
             return View(consecutivoDiario);
@@ -100,28 +94,21 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("StrRfid,IntNroTiquete,IntConsecutivoDia")] ConsecutivoDiario consecutivoDiario)
-        {
-            if (id != consecutivoDiario.StrRfid)
-            {
+        public async Task<IActionResult> Edit(string id, [Bind("StrRfid,IntNroTiquete,IntConsecutivoDia")] ConsecutivoDiario consecutivoDiario) {
+            if (id != consecutivoDiario.StrRfid) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(consecutivoDiario);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ConsecutivoDiarioExists(consecutivoDiario.StrRfid))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!ConsecutivoDiarioExists(consecutivoDiario.StrRfid)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Minas.Controllers
         }
 
         // GET: ConsecutivoDiario/Delete/5
-        public async Task<IActionResult> Delete(string id)
-        {
-            if (id == null || _context.ConsecutivoDiario == null)
-            {
+        public async Task<IActionResult> Delete(string id) {
+            if (id == null || _context.ConsecutivoDiario == null) {
                 return NotFound();
             }
 
             var consecutivoDiario = await _context.ConsecutivoDiario
                 .FirstOrDefaultAsync(m => m.StrRfid == id);
-            if (consecutivoDiario == null)
-            {
+            if (consecutivoDiario == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Minas.Controllers
         // POST: ConsecutivoDiario/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
-        {
-            if (_context.ConsecutivoDiario == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(string id) {
+            if (_context.ConsecutivoDiario == null) {
                 return Problem("Entity set 'MinasContext.ConsecutivoDiario'  is null.");
             }
             var consecutivoDiario = await _context.ConsecutivoDiario.FindAsync(id);
-            if (consecutivoDiario != null)
-            {
+            if (consecutivoDiario != null) {
                 _context.ConsecutivoDiario.Remove(consecutivoDiario);
             }
 
@@ -167,8 +148,7 @@ namespace Minas.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ConsecutivoDiarioExists(string id)
-        {
+        private bool ConsecutivoDiarioExists(string id) {
             return _context.ConsecutivoDiario.Any(e => e.StrRfid == id);
         }
     }

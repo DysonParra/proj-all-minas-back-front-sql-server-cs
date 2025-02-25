@@ -22,35 +22,35 @@ using Microsoft.EntityFrameworkCore;
 using Minas.Data;
 using Project.Models;
 
-namespace Minas.Controllers
-{
-    public class ControlAccesoController : Controller
-    {
+namespace Minas.Controllers {
+
+    /**
+     * TODO: Description of {@code ControlAccesoController}.
+     *
+     * @author Dyson Parra
+     * @since .NET 8 (LTS), C# 12
+     */
+    public class ControlAccesoController : Controller {
         private readonly MinasContext _context;
 
-        public ControlAccesoController(MinasContext context)
-        {
+        public ControlAccesoController(MinasContext context) {
             _context = context;
         }
 
         // GET: ControlAcceso
-        public async Task<IActionResult> Index()
-        {
+        public async Task<IActionResult> Index() {
             return View(await _context.ControlAcceso.ToListAsync());
         }
 
         // GET: ControlAcceso/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.ControlAcceso == null)
-            {
+        public async Task<IActionResult> Details(int? id) {
+            if (id == null || _context.ControlAcceso == null) {
                 return NotFound();
             }
 
             var controlAcceso = await _context.ControlAcceso
                 .FirstOrDefaultAsync(m => m.IntIdControl == id);
-            if (controlAcceso == null)
-            {
+            if (controlAcceso == null) {
                 return NotFound();
             }
 
@@ -58,8 +58,7 @@ namespace Minas.Controllers
         }
 
         // GET: ControlAcceso/Create
-        public IActionResult Create()
-        {
+        public IActionResult Create() {
             return View();
         }
 
@@ -68,10 +67,8 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntIdControl,StrIdDestino,StrPlaca,StrConductor,DtFechaIngreso,DtFechaSalida,IntTopeMensual,IntAcumulado,DtFechaValidez,StrTipoTarjeta,IntIdContrato,StrIdMina,StrCifProveedor,StrRfid")] ControlAcceso controlAcceso)
-        {
-            if (ModelState.IsValid)
-            {
+        public async Task<IActionResult> Create([Bind("IntIdControl,StrIdDestino,StrPlaca,StrConductor,DtFechaIngreso,DtFechaSalida,IntTopeMensual,IntAcumulado,DtFechaValidez,StrTipoTarjeta,IntIdContrato,StrIdMina,StrCifProveedor,StrRfid")] ControlAcceso controlAcceso) {
+            if (ModelState.IsValid) {
                 _context.Add(controlAcceso);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,16 +77,13 @@ namespace Minas.Controllers
         }
 
         // GET: ControlAcceso/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.ControlAcceso == null)
-            {
+        public async Task<IActionResult> Edit(int? id) {
+            if (id == null || _context.ControlAcceso == null) {
                 return NotFound();
             }
 
             var controlAcceso = await _context.ControlAcceso.FindAsync(id);
-            if (controlAcceso == null)
-            {
+            if (controlAcceso == null) {
                 return NotFound();
             }
             return View(controlAcceso);
@@ -100,28 +94,21 @@ namespace Minas.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("IntIdControl,StrIdDestino,StrPlaca,StrConductor,DtFechaIngreso,DtFechaSalida,IntTopeMensual,IntAcumulado,DtFechaValidez,StrTipoTarjeta,IntIdContrato,StrIdMina,StrCifProveedor,StrRfid")] ControlAcceso controlAcceso)
-        {
-            if (id != controlAcceso.IntIdControl)
-            {
+        public async Task<IActionResult> Edit(int? id, [Bind("IntIdControl,StrIdDestino,StrPlaca,StrConductor,DtFechaIngreso,DtFechaSalida,IntTopeMensual,IntAcumulado,DtFechaValidez,StrTipoTarjeta,IntIdContrato,StrIdMina,StrCifProveedor,StrRfid")] ControlAcceso controlAcceso) {
+            if (id != controlAcceso.IntIdControl) {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
+            if (ModelState.IsValid) {
+                try {
                     _context.Update(controlAcceso);
                     await _context.SaveChangesAsync();
                 }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ControlAccesoExists(controlAcceso.IntIdControl))
-                    {
+                catch (DbUpdateConcurrencyException) {
+                    if (!ControlAccesoExists(controlAcceso.IntIdControl)) {
                         return NotFound();
                     }
-                    else
-                    {
+                    else {
                         throw;
                     }
                 }
@@ -131,17 +118,14 @@ namespace Minas.Controllers
         }
 
         // GET: ControlAcceso/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.ControlAcceso == null)
-            {
+        public async Task<IActionResult> Delete(int? id) {
+            if (id == null || _context.ControlAcceso == null) {
                 return NotFound();
             }
 
             var controlAcceso = await _context.ControlAcceso
                 .FirstOrDefaultAsync(m => m.IntIdControl == id);
-            if (controlAcceso == null)
-            {
+            if (controlAcceso == null) {
                 return NotFound();
             }
 
@@ -151,15 +135,12 @@ namespace Minas.Controllers
         // POST: ControlAcceso/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
-        {
-            if (_context.ControlAcceso == null)
-            {
+        public async Task<IActionResult> DeleteConfirmed(int? id) {
+            if (_context.ControlAcceso == null) {
                 return Problem("Entity set 'MinasContext.ControlAcceso'  is null.");
             }
             var controlAcceso = await _context.ControlAcceso.FindAsync(id);
-            if (controlAcceso != null)
-            {
+            if (controlAcceso != null) {
                 _context.ControlAcceso.Remove(controlAcceso);
             }
 
@@ -167,8 +148,7 @@ namespace Minas.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ControlAccesoExists(int? id)
-        {
+        private bool ControlAccesoExists(int? id) {
             return _context.ControlAcceso.Any(e => e.IntIdControl == id);
         }
     }
