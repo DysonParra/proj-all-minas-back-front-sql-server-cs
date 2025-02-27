@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class DestinoController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code DestinoController}.
+         *
+         */
         public DestinoController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Destino
+        /**
+         * GET: Destino
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Destino.ToListAsync());
         }
 
-        // GET: Destino/Details/5
+        /**
+         * GET: Destino/Details/5
+         *
+         */
         public async Task<IActionResult> Details(string id) {
             if (id == null || _context.Destino == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(destino);
         }
 
-        // GET: Destino/Create
+        /**
+         * GET: Destino/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Destino/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Destino/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StrIdDestino,StrNombre,StrTelefono,StrDireccion,StrObservaciones,StrSeleccionado")] Destino destino) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(destino);
         }
 
-        // GET: Destino/Edit/5
+        /**
+         * GET: Destino/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(string id) {
             if (id == null || _context.Destino == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(destino);
         }
 
-        // POST: Destino/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Destino/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("StrIdDestino,StrNombre,StrTelefono,StrDireccion,StrObservaciones,StrSeleccionado")] Destino destino) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(destino);
         }
 
-        // GET: Destino/Delete/5
+        /**
+         * GET: Destino/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(string id) {
             if (id == null || _context.Destino == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(destino);
         }
 
-        // POST: Destino/Delete/5
+        /**
+         * POST: Destino/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code DestinoExists}.
+         *
+         */
         private bool DestinoExists(string id) {
             return _context.Destino.Any(e => e.StrIdDestino == id);
         }

@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class IndicadorController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code IndicadorController}.
+         *
+         */
         public IndicadorController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Indicador
+        /**
+         * GET: Indicador
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Indicador.ToListAsync());
         }
 
-        // GET: Indicador/Details/5
+        /**
+         * GET: Indicador/Details/5
+         *
+         */
         public async Task<IActionResult> Details(string id) {
             if (id == null || _context.Indicador == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(indicador);
         }
 
-        // GET: Indicador/Create
+        /**
+         * GET: Indicador/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Indicador/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Indicador/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StrCodigo,StrNombre,StrTamanoTrama,StrPosicionInicial,StrTotalDatosPeso,StrCaracterFinTrama,StrCaracterInicioTrama")] Indicador indicador) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(indicador);
         }
 
-        // GET: Indicador/Edit/5
+        /**
+         * GET: Indicador/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(string id) {
             if (id == null || _context.Indicador == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(indicador);
         }
 
-        // POST: Indicador/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Indicador/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("StrCodigo,StrNombre,StrTamanoTrama,StrPosicionInicial,StrTotalDatosPeso,StrCaracterFinTrama,StrCaracterInicioTrama")] Indicador indicador) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(indicador);
         }
 
-        // GET: Indicador/Delete/5
+        /**
+         * GET: Indicador/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(string id) {
             if (id == null || _context.Indicador == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(indicador);
         }
 
-        // POST: Indicador/Delete/5
+        /**
+         * POST: Indicador/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code IndicadorExists}.
+         *
+         */
         private bool IndicadorExists(string id) {
             return _context.Indicador.Any(e => e.StrCodigo == id);
         }

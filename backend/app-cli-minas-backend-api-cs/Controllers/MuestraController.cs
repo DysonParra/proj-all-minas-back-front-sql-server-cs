@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class MuestraController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code MuestraController}.
+         *
+         */
         public MuestraController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Muestra
+        /**
+         * GET: Muestra
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Muestra.ToListAsync());
         }
 
-        // GET: Muestra/Details/5
+        /**
+         * GET: Muestra/Details/5
+         *
+         */
         public async Task<IActionResult> Details(int? id) {
             if (id == null || _context.Muestra == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(muestra);
         }
 
-        // GET: Muestra/Create
+        /**
+         * GET: Muestra/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Muestra/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Muestra/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdMuestra,StrPartida,StrCamion,DtFechaHora,StrObservaciones,StrRfid")] Muestra muestra) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(muestra);
         }
 
-        // GET: Muestra/Edit/5
+        /**
+         * GET: Muestra/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(int? id) {
             if (id == null || _context.Muestra == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(muestra);
         }
 
-        // POST: Muestra/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Muestra/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("IntIdMuestra,StrPartida,StrCamion,DtFechaHora,StrObservaciones,StrRfid")] Muestra muestra) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(muestra);
         }
 
-        // GET: Muestra/Delete/5
+        /**
+         * GET: Muestra/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(int? id) {
             if (id == null || _context.Muestra == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(muestra);
         }
 
-        // POST: Muestra/Delete/5
+        /**
+         * POST: Muestra/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code MuestraExists}.
+         *
+         */
         private bool MuestraExists(int? id) {
             return _context.Muestra.Any(e => e.IntIdMuestra == id);
         }

@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class VehiculoController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code VehiculoController}.
+         *
+         */
         public VehiculoController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Vehiculo
+        /**
+         * GET: Vehiculo
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Vehiculo.ToListAsync());
         }
 
-        // GET: Vehiculo/Details/5
+        /**
+         * GET: Vehiculo/Details/5
+         *
+         */
         public async Task<IActionResult> Details(string id) {
             if (id == null || _context.Vehiculo == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(vehiculo);
         }
 
-        // GET: Vehiculo/Create
+        /**
+         * GET: Vehiculo/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Vehiculo/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Vehiculo/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StrRfid,StrPlaca,StrTransporte,DtRevisionTecnomecanica,StrSeguro,IntTara,IntCapacidad,StrCategoria,StrIdMina,StrPatio,StrTope,StrIdConductor,StrCif")] Vehiculo vehiculo) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(vehiculo);
         }
 
-        // GET: Vehiculo/Edit/5
+        /**
+         * GET: Vehiculo/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(string id) {
             if (id == null || _context.Vehiculo == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(vehiculo);
         }
 
-        // POST: Vehiculo/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Vehiculo/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("StrRfid,StrPlaca,StrTransporte,DtRevisionTecnomecanica,StrSeguro,IntTara,IntCapacidad,StrCategoria,StrIdMina,StrPatio,StrTope,StrIdConductor,StrCif")] Vehiculo vehiculo) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(vehiculo);
         }
 
-        // GET: Vehiculo/Delete/5
+        /**
+         * GET: Vehiculo/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(string id) {
             if (id == null || _context.Vehiculo == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(vehiculo);
         }
 
-        // POST: Vehiculo/Delete/5
+        /**
+         * POST: Vehiculo/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code VehiculoExists}.
+         *
+         */
         private bool VehiculoExists(string id) {
             return _context.Vehiculo.Any(e => e.StrRfid == id);
         }

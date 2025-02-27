@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class BasculaController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code BasculaController}.
+         *
+         */
         public BasculaController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Bascula
+        /**
+         * GET: Bascula
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Bascula.ToListAsync());
         }
 
-        // GET: Bascula/Details/5
+        /**
+         * GET: Bascula/Details/5
+         *
+         */
         public async Task<IActionResult> Details(int? id) {
             if (id == null || _context.Bascula == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(bascula);
         }
 
-        // GET: Bascula/Create
+        /**
+         * GET: Bascula/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Bascula/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Bascula/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdProveedor,StrRfid,IntCodigoPartida,IntNumeroMuestra,IntEstadoPartida,DtFechaHoraEntrada,FltPesoBruto,FltPesoNeto,StrTipoVehiculo,StrMssCodigoPartida,DtMssFechaHoraTomaMuestra")] Bascula bascula) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(bascula);
         }
 
-        // GET: Bascula/Edit/5
+        /**
+         * GET: Bascula/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(int? id) {
             if (id == null || _context.Bascula == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(bascula);
         }
 
-        // POST: Bascula/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Bascula/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("IntIdProveedor,StrRfid,IntCodigoPartida,IntNumeroMuestra,IntEstadoPartida,DtFechaHoraEntrada,FltPesoBruto,FltPesoNeto,StrTipoVehiculo,StrMssCodigoPartida,DtMssFechaHoraTomaMuestra")] Bascula bascula) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(bascula);
         }
 
-        // GET: Bascula/Delete/5
+        /**
+         * GET: Bascula/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(int? id) {
             if (id == null || _context.Bascula == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(bascula);
         }
 
-        // POST: Bascula/Delete/5
+        /**
+         * POST: Bascula/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code BasculaExists}.
+         *
+         */
         private bool BasculaExists(int? id) {
             return _context.Bascula.Any(e => e.IntIdProveedor == id);
         }

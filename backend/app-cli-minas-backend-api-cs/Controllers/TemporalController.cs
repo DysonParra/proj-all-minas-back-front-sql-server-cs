@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class TemporalController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code TemporalController}.
+         *
+         */
         public TemporalController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Temporal
+        /**
+         * GET: Temporal
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Temporal.ToListAsync());
         }
 
-        // GET: Temporal/Details/5
+        /**
+         * GET: Temporal/Details/5
+         *
+         */
         public async Task<IActionResult> Details(int? id) {
             if (id == null || _context.Temporal == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(temporal);
         }
 
-        // GET: Temporal/Create
+        /**
+         * GET: Temporal/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Temporal/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Temporal/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdTemporal,StrPlaca,StrRfid,StrProveedor,StrTope,IntAcumulado,DtFechaEntrada,DtFechaSalida,StrEstado")] Temporal temporal) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(temporal);
         }
 
-        // GET: Temporal/Edit/5
+        /**
+         * GET: Temporal/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(int? id) {
             if (id == null || _context.Temporal == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(temporal);
         }
 
-        // POST: Temporal/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Temporal/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("IntIdTemporal,StrPlaca,StrRfid,StrProveedor,StrTope,IntAcumulado,DtFechaEntrada,DtFechaSalida,StrEstado")] Temporal temporal) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(temporal);
         }
 
-        // GET: Temporal/Delete/5
+        /**
+         * GET: Temporal/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(int? id) {
             if (id == null || _context.Temporal == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(temporal);
         }
 
-        // POST: Temporal/Delete/5
+        /**
+         * POST: Temporal/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code TemporalExists}.
+         *
+         */
         private bool TemporalExists(int? id) {
             return _context.Temporal.Any(e => e.IntIdTemporal == id);
         }

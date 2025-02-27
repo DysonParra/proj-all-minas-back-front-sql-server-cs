@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class OrigenController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code OrigenController}.
+         *
+         */
         public OrigenController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Origen
+        /**
+         * GET: Origen
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Origen.ToListAsync());
         }
 
-        // GET: Origen/Details/5
+        /**
+         * GET: Origen/Details/5
+         *
+         */
         public async Task<IActionResult> Details(string id) {
             if (id == null || _context.Origen == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(origen);
         }
 
-        // GET: Origen/Create
+        /**
+         * GET: Origen/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Origen/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Origen/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StrIdOrigen,StrNombre,StrCodigoRfid,StrDireccion,StrObservaciones")] Origen origen) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(origen);
         }
 
-        // GET: Origen/Edit/5
+        /**
+         * GET: Origen/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(string id) {
             if (id == null || _context.Origen == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(origen);
         }
 
-        // POST: Origen/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Origen/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("StrIdOrigen,StrNombre,StrCodigoRfid,StrDireccion,StrObservaciones")] Origen origen) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(origen);
         }
 
-        // GET: Origen/Delete/5
+        /**
+         * GET: Origen/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(string id) {
             if (id == null || _context.Origen == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(origen);
         }
 
-        // POST: Origen/Delete/5
+        /**
+         * POST: Origen/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code OrigenExists}.
+         *
+         */
         private bool OrigenExists(string id) {
             return _context.Origen.Any(e => e.StrIdOrigen == id);
         }

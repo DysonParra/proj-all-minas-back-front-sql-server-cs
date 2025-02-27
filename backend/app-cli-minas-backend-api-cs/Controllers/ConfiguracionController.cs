@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class ConfiguracionController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code ConfiguracionController}.
+         *
+         */
         public ConfiguracionController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Configuracion
+        /**
+         * GET: Configuracion
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Configuracion.ToListAsync());
         }
 
-        // GET: Configuracion/Details/5
+        /**
+         * GET: Configuracion/Details/5
+         *
+         */
         public async Task<IActionResult> Details(int? id) {
             if (id == null || _context.Configuracion == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(configuracion);
         }
 
-        // GET: Configuracion/Create
+        /**
+         * GET: Configuracion/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Configuracion/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Configuracion/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntId,StrTipo,StrIndicador,StrBaudios,StrBitsDatos,StrBitsParada,StrParidad,StrIp,StrPuerto,StrUsuario,StrContrasena,BitEstado")] Configuracion configuracion) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(configuracion);
         }
 
-        // GET: Configuracion/Edit/5
+        /**
+         * GET: Configuracion/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(int? id) {
             if (id == null || _context.Configuracion == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(configuracion);
         }
 
-        // POST: Configuracion/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Configuracion/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("IntId,StrTipo,StrIndicador,StrBaudios,StrBitsDatos,StrBitsParada,StrParidad,StrIp,StrPuerto,StrUsuario,StrContrasena,BitEstado")] Configuracion configuracion) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(configuracion);
         }
 
-        // GET: Configuracion/Delete/5
+        /**
+         * GET: Configuracion/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(int? id) {
             if (id == null || _context.Configuracion == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(configuracion);
         }
 
-        // POST: Configuracion/Delete/5
+        /**
+         * POST: Configuracion/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code ConfiguracionExists}.
+         *
+         */
         private bool ConfiguracionExists(int? id) {
             return _context.Configuracion.Any(e => e.IntId == id);
         }

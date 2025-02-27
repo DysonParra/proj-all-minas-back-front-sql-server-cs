@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class ContratoController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code ContratoController}.
+         *
+         */
         public ContratoController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Contrato
+        /**
+         * GET: Contrato
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Contrato.ToListAsync());
         }
 
-        // GET: Contrato/Details/5
+        /**
+         * GET: Contrato/Details/5
+         *
+         */
         public async Task<IActionResult> Details(int? id) {
             if (id == null || _context.Contrato == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(contrato);
         }
 
-        // GET: Contrato/Create
+        /**
+         * GET: Contrato/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Contrato/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Contrato/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdContrato,StrIdParque,StrCentroProduccion,StrCarburante,StrTipoAgrupacion,BitPartidaMaestra,IntTipoExistencia,StrDescripcion")] Contrato contrato) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(contrato);
         }
 
-        // GET: Contrato/Edit/5
+        /**
+         * GET: Contrato/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(int? id) {
             if (id == null || _context.Contrato == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(contrato);
         }
 
-        // POST: Contrato/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Contrato/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("IntIdContrato,StrIdParque,StrCentroProduccion,StrCarburante,StrTipoAgrupacion,BitPartidaMaestra,IntTipoExistencia,StrDescripcion")] Contrato contrato) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(contrato);
         }
 
-        // GET: Contrato/Delete/5
+        /**
+         * GET: Contrato/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(int? id) {
             if (id == null || _context.Contrato == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(contrato);
         }
 
-        // POST: Contrato/Delete/5
+        /**
+         * POST: Contrato/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code ContratoExists}.
+         *
+         */
         private bool ContratoExists(int? id) {
             return _context.Contrato.Any(e => e.IntIdContrato == id);
         }

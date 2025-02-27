@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class TituloMineroController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code TituloMineroController}.
+         *
+         */
         public TituloMineroController(MinasContext context) {
             _context = context;
         }
 
-        // GET: TituloMinero
+        /**
+         * GET: TituloMinero
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.TituloMinero.ToListAsync());
         }
 
-        // GET: TituloMinero/Details/5
+        /**
+         * GET: TituloMinero/Details/5
+         *
+         */
         public async Task<IActionResult> Details(string id) {
             if (id == null || _context.TituloMinero == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(tituloMinero);
         }
 
-        // GET: TituloMinero/Create
+        /**
+         * GET: TituloMinero/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: TituloMinero/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: TituloMinero/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StrIdTitulo,StrNombre,StrLocalidad,StrTelefono,StrObservaciones,StrCifProveedor")] TituloMinero tituloMinero) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(tituloMinero);
         }
 
-        // GET: TituloMinero/Edit/5
+        /**
+         * GET: TituloMinero/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(string id) {
             if (id == null || _context.TituloMinero == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(tituloMinero);
         }
 
-        // POST: TituloMinero/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: TituloMinero/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("StrIdTitulo,StrNombre,StrLocalidad,StrTelefono,StrObservaciones,StrCifProveedor")] TituloMinero tituloMinero) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(tituloMinero);
         }
 
-        // GET: TituloMinero/Delete/5
+        /**
+         * GET: TituloMinero/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(string id) {
             if (id == null || _context.TituloMinero == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(tituloMinero);
         }
 
-        // POST: TituloMinero/Delete/5
+        /**
+         * POST: TituloMinero/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code TituloMineroExists}.
+         *
+         */
         private bool TituloMineroExists(string id) {
             return _context.TituloMinero.Any(e => e.StrIdTitulo == id);
         }

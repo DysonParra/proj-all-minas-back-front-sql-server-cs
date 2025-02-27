@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class SancionController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code SancionController}.
+         *
+         */
         public SancionController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Sancion
+        /**
+         * GET: Sancion
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Sancion.ToListAsync());
         }
 
-        // GET: Sancion/Details/5
+        /**
+         * GET: Sancion/Details/5
+         *
+         */
         public async Task<IActionResult> Details(int? id) {
             if (id == null || _context.Sancion == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(sancion);
         }
 
-        // GET: Sancion/Create
+        /**
+         * GET: Sancion/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Sancion/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Sancion/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntNumero,StrItem,BitSancionConductor,BitSancionVehiculo,StrTiempo")] Sancion sancion) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(sancion);
         }
 
-        // GET: Sancion/Edit/5
+        /**
+         * GET: Sancion/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(int? id) {
             if (id == null || _context.Sancion == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(sancion);
         }
 
-        // POST: Sancion/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Sancion/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("IntNumero,StrItem,BitSancionConductor,BitSancionVehiculo,StrTiempo")] Sancion sancion) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(sancion);
         }
 
-        // GET: Sancion/Delete/5
+        /**
+         * GET: Sancion/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(int? id) {
             if (id == null || _context.Sancion == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(sancion);
         }
 
-        // POST: Sancion/Delete/5
+        /**
+         * POST: Sancion/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code SancionExists}.
+         *
+         */
         private bool SancionExists(int? id) {
             return _context.Sancion.Any(e => e.IntNumero == id);
         }

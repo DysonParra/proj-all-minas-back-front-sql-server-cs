@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class CierrePartidaController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code CierrePartidaController}.
+         *
+         */
         public CierrePartidaController(MinasContext context) {
             _context = context;
         }
 
-        // GET: CierrePartida
+        /**
+         * GET: CierrePartida
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.CierrePartida.ToListAsync());
         }
 
-        // GET: CierrePartida/Details/5
+        /**
+         * GET: CierrePartida/Details/5
+         *
+         */
         public async Task<IActionResult> Details(int? id) {
             if (id == null || _context.CierrePartida == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(cierrePartida);
         }
 
-        // GET: CierrePartida/Create
+        /**
+         * GET: CierrePartida/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: CierrePartida/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: CierrePartida/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntConsecutivo,IntCodigoPartida,StrCifProveedor,IntCodigoVehiculo,StrRfid,IntPeso,DtFecha,StrEstado,IntPesoEstimado,StrTipo")] CierrePartida cierrePartida) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(cierrePartida);
         }
 
-        // GET: CierrePartida/Edit/5
+        /**
+         * GET: CierrePartida/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(int? id) {
             if (id == null || _context.CierrePartida == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(cierrePartida);
         }
 
-        // POST: CierrePartida/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: CierrePartida/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("IntConsecutivo,IntCodigoPartida,StrCifProveedor,IntCodigoVehiculo,StrRfid,IntPeso,DtFecha,StrEstado,IntPesoEstimado,StrTipo")] CierrePartida cierrePartida) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(cierrePartida);
         }
 
-        // GET: CierrePartida/Delete/5
+        /**
+         * GET: CierrePartida/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(int? id) {
             if (id == null || _context.CierrePartida == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(cierrePartida);
         }
 
-        // POST: CierrePartida/Delete/5
+        /**
+         * POST: CierrePartida/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code CierrePartidaExists}.
+         *
+         */
         private bool CierrePartidaExists(int? id) {
             return _context.CierrePartida.Any(e => e.IntConsecutivo == id);
         }

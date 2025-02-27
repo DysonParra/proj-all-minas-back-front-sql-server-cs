@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class ConsecutivoDiarioController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code ConsecutivoDiarioController}.
+         *
+         */
         public ConsecutivoDiarioController(MinasContext context) {
             _context = context;
         }
 
-        // GET: ConsecutivoDiario
+        /**
+         * GET: ConsecutivoDiario
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.ConsecutivoDiario.ToListAsync());
         }
 
-        // GET: ConsecutivoDiario/Details/5
+        /**
+         * GET: ConsecutivoDiario/Details/5
+         *
+         */
         public async Task<IActionResult> Details(string id) {
             if (id == null || _context.ConsecutivoDiario == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(consecutivoDiario);
         }
 
-        // GET: ConsecutivoDiario/Create
+        /**
+         * GET: ConsecutivoDiario/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: ConsecutivoDiario/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: ConsecutivoDiario/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StrRfid,IntNroTiquete,IntConsecutivoDia")] ConsecutivoDiario consecutivoDiario) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(consecutivoDiario);
         }
 
-        // GET: ConsecutivoDiario/Edit/5
+        /**
+         * GET: ConsecutivoDiario/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(string id) {
             if (id == null || _context.ConsecutivoDiario == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(consecutivoDiario);
         }
 
-        // POST: ConsecutivoDiario/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: ConsecutivoDiario/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("StrRfid,IntNroTiquete,IntConsecutivoDia")] ConsecutivoDiario consecutivoDiario) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(consecutivoDiario);
         }
 
-        // GET: ConsecutivoDiario/Delete/5
+        /**
+         * GET: ConsecutivoDiario/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(string id) {
             if (id == null || _context.ConsecutivoDiario == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(consecutivoDiario);
         }
 
-        // POST: ConsecutivoDiario/Delete/5
+        /**
+         * POST: ConsecutivoDiario/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code ConsecutivoDiarioExists}.
+         *
+         */
         private bool ConsecutivoDiarioExists(string id) {
             return _context.ConsecutivoDiario.Any(e => e.StrRfid == id);
         }

@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class MinaController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code MinaController}.
+         *
+         */
         public MinaController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Mina
+        /**
+         * GET: Mina
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Mina.ToListAsync());
         }
 
-        // GET: Mina/Details/5
+        /**
+         * GET: Mina/Details/5
+         *
+         */
         public async Task<IActionResult> Details(string id) {
             if (id == null || _context.Mina == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(mina);
         }
 
-        // GET: Mina/Create
+        /**
+         * GET: Mina/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Mina/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Mina/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StrIdMina,StrNombre,StrLocalidad,StrTelefono,StrObservaciones,StrProducto,StrTicket,StrIdTituloMinero")] Mina mina) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(mina);
         }
 
-        // GET: Mina/Edit/5
+        /**
+         * GET: Mina/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(string id) {
             if (id == null || _context.Mina == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(mina);
         }
 
-        // POST: Mina/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Mina/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("StrIdMina,StrNombre,StrLocalidad,StrTelefono,StrObservaciones,StrProducto,StrTicket,StrIdTituloMinero")] Mina mina) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(mina);
         }
 
-        // GET: Mina/Delete/5
+        /**
+         * GET: Mina/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(string id) {
             if (id == null || _context.Mina == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(mina);
         }
 
-        // POST: Mina/Delete/5
+        /**
+         * POST: Mina/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code MinaExists}.
+         *
+         */
         private bool MinaExists(string id) {
             return _context.Mina.Any(e => e.StrIdMina == id);
         }

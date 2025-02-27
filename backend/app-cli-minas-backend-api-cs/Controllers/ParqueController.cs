@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class ParqueController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code ParqueController}.
+         *
+         */
         public ParqueController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Parque
+        /**
+         * GET: Parque
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Parque.ToListAsync());
         }
 
-        // GET: Parque/Details/5
+        /**
+         * GET: Parque/Details/5
+         *
+         */
         public async Task<IActionResult> Details(int? id) {
             if (id == null || _context.Parque == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(parque);
         }
 
-        // GET: Parque/Create
+        /**
+         * GET: Parque/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Parque/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Parque/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdParque,StrNombreParque,StrObservaciones,StrUbicacion")] Parque parque) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(parque);
         }
 
-        // GET: Parque/Edit/5
+        /**
+         * GET: Parque/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(int? id) {
             if (id == null || _context.Parque == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(parque);
         }
 
-        // POST: Parque/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Parque/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("IntIdParque,StrNombreParque,StrObservaciones,StrUbicacion")] Parque parque) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(parque);
         }
 
-        // GET: Parque/Delete/5
+        /**
+         * GET: Parque/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(int? id) {
             if (id == null || _context.Parque == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(parque);
         }
 
-        // POST: Parque/Delete/5
+        /**
+         * POST: Parque/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code ParqueExists}.
+         *
+         */
         private bool ParqueExists(int? id) {
             return _context.Parque.Any(e => e.IntIdParque == id);
         }

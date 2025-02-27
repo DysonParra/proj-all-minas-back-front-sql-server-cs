@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class FicherosProveedorController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code FicherosProveedorController}.
+         *
+         */
         public FicherosProveedorController(MinasContext context) {
             _context = context;
         }
 
-        // GET: FicherosProveedor
+        /**
+         * GET: FicherosProveedor
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.FicherosProveedor.ToListAsync());
         }
 
-        // GET: FicherosProveedor/Details/5
+        /**
+         * GET: FicherosProveedor/Details/5
+         *
+         */
         public async Task<IActionResult> Details(string id) {
             if (id == null || _context.FicherosProveedor == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(ficherosProveedor);
         }
 
-        // GET: FicherosProveedor/Create
+        /**
+         * GET: FicherosProveedor/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: FicherosProveedor/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: FicherosProveedor/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StrCif,StrNombre,IntTopeMensual,DtFechaHoraCarga,StrIdUsuario")] FicherosProveedor ficherosProveedor) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(ficherosProveedor);
         }
 
-        // GET: FicherosProveedor/Edit/5
+        /**
+         * GET: FicherosProveedor/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(string id) {
             if (id == null || _context.FicherosProveedor == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(ficherosProveedor);
         }
 
-        // POST: FicherosProveedor/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: FicherosProveedor/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("StrCif,StrNombre,IntTopeMensual,DtFechaHoraCarga,StrIdUsuario")] FicherosProveedor ficherosProveedor) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(ficherosProveedor);
         }
 
-        // GET: FicherosProveedor/Delete/5
+        /**
+         * GET: FicherosProveedor/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(string id) {
             if (id == null || _context.FicherosProveedor == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(ficherosProveedor);
         }
 
-        // POST: FicherosProveedor/Delete/5
+        /**
+         * POST: FicherosProveedor/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code FicherosProveedorExists}.
+         *
+         */
         private bool FicherosProveedorExists(string id) {
             return _context.FicherosProveedor.Any(e => e.StrCif == id);
         }

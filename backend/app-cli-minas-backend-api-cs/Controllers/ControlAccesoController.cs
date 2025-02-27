@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class ControlAccesoController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code ControlAccesoController}.
+         *
+         */
         public ControlAccesoController(MinasContext context) {
             _context = context;
         }
 
-        // GET: ControlAcceso
+        /**
+         * GET: ControlAcceso
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.ControlAcceso.ToListAsync());
         }
 
-        // GET: ControlAcceso/Details/5
+        /**
+         * GET: ControlAcceso/Details/5
+         *
+         */
         public async Task<IActionResult> Details(int? id) {
             if (id == null || _context.ControlAcceso == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(controlAcceso);
         }
 
-        // GET: ControlAcceso/Create
+        /**
+         * GET: ControlAcceso/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: ControlAcceso/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: ControlAcceso/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntIdControl,StrIdDestino,StrPlaca,StrConductor,DtFechaIngreso,DtFechaSalida,IntTopeMensual,IntAcumulado,DtFechaValidez,StrTipoTarjeta,IntIdContrato,StrIdMina,StrCifProveedor,StrRfid")] ControlAcceso controlAcceso) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(controlAcceso);
         }
 
-        // GET: ControlAcceso/Edit/5
+        /**
+         * GET: ControlAcceso/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(int? id) {
             if (id == null || _context.ControlAcceso == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(controlAcceso);
         }
 
-        // POST: ControlAcceso/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: ControlAcceso/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("IntIdControl,StrIdDestino,StrPlaca,StrConductor,DtFechaIngreso,DtFechaSalida,IntTopeMensual,IntAcumulado,DtFechaValidez,StrTipoTarjeta,IntIdContrato,StrIdMina,StrCifProveedor,StrRfid")] ControlAcceso controlAcceso) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(controlAcceso);
         }
 
-        // GET: ControlAcceso/Delete/5
+        /**
+         * GET: ControlAcceso/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(int? id) {
             if (id == null || _context.ControlAcceso == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(controlAcceso);
         }
 
-        // POST: ControlAcceso/Delete/5
+        /**
+         * POST: ControlAcceso/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code ControlAccesoExists}.
+         *
+         */
         private bool ControlAccesoExists(int? id) {
             return _context.ControlAcceso.Any(e => e.IntIdControl == id);
         }

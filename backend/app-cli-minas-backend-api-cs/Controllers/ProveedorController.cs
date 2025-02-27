@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class ProveedorController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code ProveedorController}.
+         *
+         */
         public ProveedorController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Proveedor
+        /**
+         * GET: Proveedor
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Proveedor.ToListAsync());
         }
 
-        // GET: Proveedor/Details/5
+        /**
+         * GET: Proveedor/Details/5
+         *
+         */
         public async Task<IActionResult> Details(string id) {
             if (id == null || _context.Proveedor == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(proveedor);
         }
 
-        // GET: Proveedor/Create
+        /**
+         * GET: Proveedor/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Proveedor/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Proveedor/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StrCif,StrNombre,StrDireccion,StrPais,StrPoblacion,StrCodigoProveedor,StrCorreoElectronico,StrPatio,IntTopeMensual,IntAcumulado,StrObservaciones,IntTopeOpcional,IntTopeAdicional,IntTopeSpot,IntTopeOtros")] Proveedor proveedor) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(proveedor);
         }
 
-        // GET: Proveedor/Edit/5
+        /**
+         * GET: Proveedor/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(string id) {
             if (id == null || _context.Proveedor == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(proveedor);
         }
 
-        // POST: Proveedor/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Proveedor/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("StrCif,StrNombre,StrDireccion,StrPais,StrPoblacion,StrCodigoProveedor,StrCorreoElectronico,StrPatio,IntTopeMensual,IntAcumulado,StrObservaciones,IntTopeOpcional,IntTopeAdicional,IntTopeSpot,IntTopeOtros")] Proveedor proveedor) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(proveedor);
         }
 
-        // GET: Proveedor/Delete/5
+        /**
+         * GET: Proveedor/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(string id) {
             if (id == null || _context.Proveedor == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(proveedor);
         }
 
-        // POST: Proveedor/Delete/5
+        /**
+         * POST: Proveedor/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code ProveedorExists}.
+         *
+         */
         private bool ProveedorExists(string id) {
             return _context.Proveedor.Any(e => e.StrCif == id);
         }

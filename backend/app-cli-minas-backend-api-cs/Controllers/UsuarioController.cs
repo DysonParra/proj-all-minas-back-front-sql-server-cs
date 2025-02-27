@@ -33,16 +33,26 @@ namespace Minas.Controllers {
     public class UsuarioController : Controller {
         private readonly MinasContext _context;
 
+        /**
+         * TODO: Description of method {@code UsuarioController}.
+         *
+         */
         public UsuarioController(MinasContext context) {
             _context = context;
         }
 
-        // GET: Usuario
+        /**
+         * GET: Usuario
+         *
+         */
         public async Task<IActionResult> Index() {
             return View(await _context.Usuario.ToListAsync());
         }
 
-        // GET: Usuario/Details/5
+        /**
+         * GET: Usuario/Details/5
+         *
+         */
         public async Task<IActionResult> Details(int? id) {
             if (id == null || _context.Usuario == null) {
                 return NotFound();
@@ -57,14 +67,20 @@ namespace Minas.Controllers {
             return View(usuario);
         }
 
-        // GET: Usuario/Create
+        /**
+         * GET: Usuario/Create
+         *
+         */
         public IActionResult Create() {
             return View();
         }
 
-        // POST: Usuario/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Usuario/Create
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IntCedula,StrNombre,StrApellido,StrEmail,StrTelefono,CrRh,StrSeudonimo,StrTipo,StrCargo,TxtContrasena")] Usuario usuario) {
@@ -76,7 +92,10 @@ namespace Minas.Controllers {
             return View(usuario);
         }
 
-        // GET: Usuario/Edit/5
+        /**
+         * GET: Usuario/Edit/5
+         *
+         */
         public async Task<IActionResult> Edit(int? id) {
             if (id == null || _context.Usuario == null) {
                 return NotFound();
@@ -89,9 +108,12 @@ namespace Minas.Controllers {
             return View(usuario);
         }
 
-        // POST: Usuario/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /**
+         * POST: Usuario/Edit/5
+         * To protect from overposting attacks, enable the specific properties you want to bind to.
+         * For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         *
+         */
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int? id, [Bind("IntCedula,StrNombre,StrApellido,StrEmail,StrTelefono,CrRh,StrSeudonimo,StrTipo,StrCargo,TxtContrasena")] Usuario usuario) {
@@ -117,7 +139,10 @@ namespace Minas.Controllers {
             return View(usuario);
         }
 
-        // GET: Usuario/Delete/5
+        /**
+         * GET: Usuario/Delete/5
+         *
+         */
         public async Task<IActionResult> Delete(int? id) {
             if (id == null || _context.Usuario == null) {
                 return NotFound();
@@ -132,7 +157,10 @@ namespace Minas.Controllers {
             return View(usuario);
         }
 
-        // POST: Usuario/Delete/5
+        /**
+         * POST: Usuario/Delete/5
+         *
+         */
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int? id) {
@@ -148,6 +176,10 @@ namespace Minas.Controllers {
             return RedirectToAction(nameof(Index));
         }
 
+        /**
+         * TODO: Description of method {@code UsuarioExists}.
+         *
+         */
         private bool UsuarioExists(int? id) {
             return _context.Usuario.Any(e => e.IntCedula == id);
         }
