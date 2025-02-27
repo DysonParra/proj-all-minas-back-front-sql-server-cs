@@ -28,7 +28,12 @@ namespace Minas.Data {
      * @since .NET 8 (LTS), C# 12
      */
     public class MinasContext : DbContext {
-        public MinasContext (DbContextOptions<MinasContext> options)
+
+        /**
+         * TODO: Description of method {@code MinasContext}.
+         *
+         */
+        public MinasContext(DbContextOptions<MinasContext> options)
             : base(options) {
         }
 
