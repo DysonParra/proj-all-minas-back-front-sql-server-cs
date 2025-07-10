@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {CierrePartidaController}
+ * @overview        {CierrePartidaController}
  *
  * @version         2.0
  *

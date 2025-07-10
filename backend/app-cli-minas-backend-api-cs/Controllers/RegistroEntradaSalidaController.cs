@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {RegistroEntradaSalidaController}
+ * @overview        {RegistroEntradaSalidaController}
  *
  * @version         2.0
  *

@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {MinasContext}
+ * @overview        {MinasContext}
  *
  * @version         2.0
  *

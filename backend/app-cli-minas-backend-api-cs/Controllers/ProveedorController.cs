@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {ProveedorController}
+ * @overview        {ProveedorController}
  *
  * @version         2.0
  *

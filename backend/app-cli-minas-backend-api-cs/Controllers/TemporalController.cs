@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {TemporalController}
+ * @overview        {TemporalController}
  *
  * @version         2.0
  *

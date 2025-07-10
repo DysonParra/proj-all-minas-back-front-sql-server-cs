@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {GeneradorPartidaController}
+ * @overview        {GeneradorPartidaController}
  *
  * @version         2.0
  *

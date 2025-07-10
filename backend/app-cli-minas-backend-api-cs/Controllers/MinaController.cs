@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {MinaController}
+ * @overview        {MinaController}
  *
  * @version         2.0
  *

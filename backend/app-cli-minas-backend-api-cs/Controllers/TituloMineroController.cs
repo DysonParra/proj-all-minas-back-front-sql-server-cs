@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {TituloMineroController}
+ * @overview        {TituloMineroController}
  *
  * @version         2.0
  *

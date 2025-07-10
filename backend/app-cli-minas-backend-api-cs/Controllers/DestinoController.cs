@@ -1,5 +1,5 @@
 ﻿/*
- * @fileoverview    {DestinoController}
+ * @overview        {DestinoController}
  *
  * @version         2.0
  *
